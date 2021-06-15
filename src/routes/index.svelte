@@ -2,21 +2,22 @@
 	import Timer from './timer';
 	const target = '2021/07/01 00:00:00';
 	let timeNow = Date.now();
-
+	
 	setInterval(() => {
 		timeNow = Date.now();
 	}, 1000);
 
 	$: [day, hour, min, sec] = Timer(target, timeNow);
+	$: date = new Date(timeNow)
 </script>
 
 <main class="main">
 	<div class="title">
-		<span class="text-title">建党100周年</span>
-		<span class="text-title">倒计时</span>
+		<span class="text-title">{`${date.getFullYear()}年${date.getMonth()}月${date.getDate()}日`}</span>
+		<span class="text-title">距建党100周年</span>
 	</div>
 	<div class="timer">
-		<span class="text-timer">剩 {day} 天 {hour} 时 {min} 分 {sec} 秒</span>
+		<span class="text-timer"> {day} 天 {hour} 时 {min} 分 {sec} 秒</span>
 	</div>
 </main>
 
