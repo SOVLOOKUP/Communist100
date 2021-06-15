@@ -13,7 +13,7 @@
 
 <main class="main">
 	<div class="title">
-		<span class="text-title">{`${date.getFullYear()}年${date.getMonth()}月${date.getDate()}日`}</span>
+		<span class="text-title">{`${date.getFullYear()}年${date.getMonth() +1}月${date.getDate()}日`}</span>
 		<span class="text-title">距建党100周年</span>
 	</div>
 	<div class="timer">
