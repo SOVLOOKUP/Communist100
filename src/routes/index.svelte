@@ -1,22 +1,42 @@
 <script>
 	import Timer from './timer';
-	const target = '2021/07/01 00:00:00';
 	let timeNow = Date.now();
-	
+
+	const target = '2021/07/01 00:00:00';
+	const weekDict = {
+		1: '一',
+		2: '二',
+		3: '三',
+		4: '四',
+		5: '五',
+		6: '六',
+		7: '日'
+	};
+	// 补零
+	const zeroPlus = (/** @type {number} */ num) =>
+		num > 9 ? num.toString() : '0' + num.toString();
+
 	setInterval(() => {
 		timeNow = Date.now();
 	}, 1000);
 
 	$: [day, hour, min, sec] = Timer(target, timeNow);
-	$: date = new Date(timeNow)
+	$: date = new Date(timeNow);
 </script>
 
 <main class="main">
 	<div class="title">
-		<span class="text-title">{`${date.getFullYear()}年${date.getMonth() +1}月${date.getDate()}日`}</span>
-		<span class="text-title">距建党100周年</span>
+		<span class="text-title"
+			>今日{`${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 星期${
+				weekDict[date.getDay()]
+			}`}</span
+		>
+		<span class="text-title"
+			>现在时间 {zeroPlus(date.getHours())}:{zeroPlus(date.getMinutes())}:{zeroPlus(date.getSeconds())}</span
+		>
 	</div>
 	<div class="timer">
+		<span class="text-title">距建党100周年</span>
 		<span class="text-timer"> {day} 天 {hour} 时 {min} 分 {sec} 秒</span>
 	</div>
 </main>
@@ -37,8 +57,9 @@
 	}
 
 	.timer {
+		flex-direction: column;
 		position: relative;
-		bottom: -57%;
+		bottom: -50%;
 		display: flex;
 		align-items: center;
 		text-align: center;
