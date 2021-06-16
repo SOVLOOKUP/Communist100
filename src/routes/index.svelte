@@ -44,7 +44,7 @@
 <style>
 	@font-face {
 		font-family: sjbsjt;
-		src: url('/static/font/sjbsjt.ttf');
+		src: url('https://cdn.jsdelivr.net/gh/sovlookup/Communist100/static/font/sjbsjt.ttf');
 	}
 
 	.title {
@@ -91,6 +91,6 @@
 		bottom: 0;
 		left: 0;
 		background-size: 100% 100%;
-		background-image: url('/static/background/竖屏B/back.jpg');
+		background-image: url('https://cdn.jsdelivr.net/gh/sovlookup/Communist100/static/background/竖屏B/back.jpg');
 	}
 </style>
