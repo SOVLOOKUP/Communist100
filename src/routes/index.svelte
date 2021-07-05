@@ -1,8 +1,8 @@
 <script>
 	import Timer from './timer';
 	let timeNow = Date.now();
-
-	const target = '2021/07/01 00:00:00';
+	const myText = '国庆安保';
+	const target = '2021/10/01 00:00:00';
 	const weekDict = {
 		1: '一',
 		2: '二',
@@ -13,14 +13,19 @@
 		7: '日'
 	};
 	// 补零
-	const zeroPlus = (/** @type {number} */ num) =>
-		num > 9 ? num.toString() : '0' + num.toString();
+	const zeroPlus = (/** @type {number} */ num) => (num > 9 ? num.toString() : '0' + num.toString());
+
+	// 倒计时不小于0
+	const getCount = (/** @type {number[] | [any, any, any, any]} */ count) => {
+		[day, hour, min, sec] = count;
+		return day < 0 ? [0, 0, 0, 0] : [day, hour, min, sec];
+	};
 
 	setInterval(() => {
 		timeNow = Date.now();
 	}, 1000);
 
-	$: [day, hour, min, sec] = Timer(target, timeNow);
+	$: [day, hour, min, sec] = getCount(Timer(target, timeNow));
 	$: date = new Date(timeNow);
 </script>
 
@@ -32,11 +37,13 @@
 			}`}</span
 		>
 		<span class="text-title"
-			>现在时间 {zeroPlus(date.getHours())}:{zeroPlus(date.getMinutes())}:{zeroPlus(date.getSeconds())}</span
+			>现在时间 {zeroPlus(date.getHours())}:{zeroPlus(date.getMinutes())}:{zeroPlus(
+				date.getSeconds()
+			)}</span
 		>
 	</div>
 	<div class="timer">
-		<span class="text-title">距建党100周年</span>
+		<span class="text-title"> 距离{myText} </span>
 		<span class="text-timer"> {day} 天 {hour} 时 {min} 分 {sec} 秒</span>
 	</div>
 </main>
@@ -59,7 +66,7 @@
 	.timer {
 		flex-direction: column;
 		position: relative;
-		bottom: -50%;
+		bottom: -40%;
 		display: flex;
 		align-items: center;
 		text-align: center;
@@ -91,6 +98,6 @@
 		bottom: 0;
 		left: 0;
 		background-size: 100% 100%;
-		background-image: url('https://cdn.jsdelivr.net/gh/sovlookup/Communist100/static/background/竖屏B/back.jpg');
+		background-image: url('https://cdn.jsdelivr.net/gh/sovlookup/Communist100/static/background/宽屏A/back.jpg');
 	}
 </style>
