@@ -60,7 +60,7 @@
 	.title {
 		position: relative;
 		display: flex;
-		top: 6%;
+		top: 20%;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
