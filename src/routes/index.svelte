@@ -46,6 +46,9 @@
 		<span class="text-title"> 距离{myText} </span>
 		<span class="text-timer"> {day} 天 {hour} 时 {min} 分 {sec} 秒</span>
 	</div>
+	<video muted autoplay loop class="video">
+		<source src="https://cdn.jsdelivr.net/gh/sovlookup/Communist100/static/background/视频A/back.mp4" type="video/mp4" />
+	</video>
 </main>
 
 <style>
@@ -91,13 +94,23 @@
 		text-shadow: 0px 5px 10px rgba(100, 53, 31, 0.7);
 	}
 
+	.video {
+		position: fixed;
+		margin:0px;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -100;
+		object-fit:fill;
+		background-attachment:fixed;
+	}
+
 	.main {
 		position: fixed;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background-size: 100% 100%;
-		background-image: url('https://cdn.jsdelivr.net/gh/sovlookup/Communist100@latest/static/background/宽屏A/back.jpg');
 	}
 </style>
