@@ -98,6 +98,6 @@
 		bottom: 0;
 		left: 0;
 		background-size: 100% 100%;
-		background-image: url('https://cdn.jsdelivr.net/gh/sovlookup/Communist100/static/background/宽屏A/back.jpg');
+		background-image: url('https://cdn.jsdelivr.net/gh/sovlookup/Communist100@latest/static/background/宽屏A/back.jpg');
 	}
 </style>
